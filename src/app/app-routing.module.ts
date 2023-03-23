@@ -8,10 +8,17 @@ const routes: Routes = [
     component:ShoppingPortalComponent,
     children:[
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-      { path: 'dashboard',  loadChildren: () =>
-      import('./shopping-portal/dashboard/dashboard.module').then((mod) => mod.DashboardModule) }
+      { 
+        path: 'dashboard',
+        loadChildren: () =>import('./shopping-portal/dashboard/dashboard.module').then((mod) => mod.DashboardModule) 
+      }
     ]
-  }
+  },
+  {
+    path: '',
+    redirectTo: '/shoppingPortal/dashboard',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
